@@ -54,7 +54,7 @@ class DataMap extends React.Component{
     }
     render() {
         return (
-            <div id="container1" style={{ width: "80vw", height: "80vh"}}></div>
+            <div id="container1" style={{ width: "80vw", height: "80vh", zIndex: 9999}}></div>
         );
     }
 }

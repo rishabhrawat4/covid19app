@@ -4,3 +4,6 @@
 .navbar-brand{
     color: rgba(255, 91, 0, 1.0);
 }
+.navbar-brand .intro{
+    font-size: 12px;
+}

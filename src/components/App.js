@@ -9,14 +9,14 @@ class App extends React.Component{
     {
         return (
             <div className="container">
-                <nav class="navbar">
-                    <span class="navbar-brand mb-0 h1">Covid19 Map Visualizer</span>
-                </nav>
                 <br />
                 <DataMap />
                 <br />
                 <Infecteddata />
                 <br />
+                <nav class="navbar">
+                    <span class="navbar-brand mb-0 h1">Covid19 Map Visualizer <span className="intro">Created by Rishabh Rawat(2k17/BT/019), Delhi Technological University</span></span>
+                </nav>
             </div>
         );
     }
