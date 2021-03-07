@@ -1,9 +1,9 @@
 import React from 'react';
 import CoronaData from '../Api/CoronaData';
-
+import './Finaldatacss.css';
 
 class Finaldata extends React.Component {
-    state = { data: {} };
+    state = { data: {}, titleColor: ""};
     origin = this.props.origin;
     componentDidMount = async () => {
         if (this.props.origin == "India") {
@@ -11,9 +11,9 @@ class Finaldata extends React.Component {
                 params: {country: this.props.origin}
             });
             const data = {};
-            data.confirmed = response.data.All.confirmed;
-            data.recovered = response.data.All.recovered;
-            data.deaths = response.data.All.deaths
+            data.confirmed = (response.data.All.confirmed).toLocaleString();
+            data.recovered = (response.data.All.recovered).toLocaleString();
+            data.deaths = (response.data.All.deaths).toLocaleString();
             this.setState({ data: data})
             console.log(response.data);
         }
@@ -29,9 +29,9 @@ class Finaldata extends React.Component {
                 deaths += response.data[key].All.deaths;
             }
             const data = {};
-            data.confirmed = confirmed;
-            data.recovered = recovered;
-            data.deaths = deaths
+            data.confirmed = (confirmed).toLocaleString();
+            data.recovered = (recovered).toLocaleString();
+            data.deaths = (deaths).toLocaleString()
             this.setState({ data: data})
         }
         else if(this.props.origin == "Delhi"){
@@ -39,9 +39,9 @@ class Finaldata extends React.Component {
                 params: {country: "India"}
             });
             const data = {};
-            data.confirmed = response.data.Delhi.confirmed;
-            data.recovered = response.data.Delhi.recovered;
-            data.deaths = response.data.Delhi.deaths
+            data.confirmed = (response.data.Delhi.confirmed).toLocaleString();
+            data.recovered = (response.data.Delhi.recovered).toLocaleString();
+            data.deaths = (response.data.Delhi.deaths).toLocaleString();
             this.setState({ data: data})
             console.log(response.data.Delhi);
             
@@ -52,9 +52,9 @@ class Finaldata extends React.Component {
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">{this.props.origin}</h5>
-                    <p className="card-text">No. of Deaths: {this.state.data.deaths} </p>
-                    <p className="card-text">Confirmed Cases: {this.state.data.confirmed} </p>
-                    <p className="card-text">Recovered: { this.state.data.recovered} </p>
+                    <p className="card-text">No. of Deaths: <span className="numbers deaths">{this.state.data.deaths}</span> </p>
+                    <p className="card-text">Confirmed Cases: <span className="numbers confirmed">{this.state.data.confirmed}</span> </p>
+                    <p className="card-text">Recovered: <span className="numbers recovered">{ this.state.data.recovered}</span> </p>
                 </div>
             </div>
         );

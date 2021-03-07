@@ -21,7 +21,7 @@ class DataMap extends React.Component{
 
         var paletteScale = d3.scaleLinear()
             .domain([min,max])
-            .range(["#ffc9c9", "#fc0303"]);
+            .range(["#ffdbc7", "#ff5b00"]);
         
         for (var key in response.data)
         {
